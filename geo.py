@@ -9,15 +9,16 @@ def printRecord(tgt):
         print('[*] Target: ' + tgt + ' Unable to Geo-locate.')
         return
     city = rec['city']
-    region = rec['region_code']
     country = rec['country_name']
     longitude = rec['longitude']
     latitude = rec['latitude']
+    url = 'https://www.google.com/maps/place/%f+%f' % (latitude, longitude)
     time_zone = rec['time_zone']
     print('[*] Target: ' + tgt + ' Geo-located.')
     print('[+] ' + str(city) + ', ' + str(country))
     print('[+] Time Zone: ' + str(time_zone))
     print('[+] ' + 'Latitude ' + str(latitude) + ', Longitude: ' + str(longitude))
+    print('[+] URL: '+ url)
 
 def main():
     parser = argparse.ArgumentParser(usage='-ip <IP Addresses>')
